@@ -22,4 +22,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build:ui --if-present
-    - run: C:\nginx\html\HRIS_WEBAPP\HRIS_Runner\HRIS\HRIS\uimodule\dist
+    - run: cd C:\nginx\html\HRIS_WEBAPP\HRIS_Runner\HRIS\HRIS\uimodule\dist
