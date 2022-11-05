@@ -1,0 +1,240 @@
+{
+  "DataRecord": {},
+  "DataRecords": [],
+  "DeductRecords": [],
+  "AllApprover": [],
+  "Addbutton": {
+      "Name": "Add",
+      "Icon": "sap-icon://add-contact" 
+    },
+  "Creadentials": {},
+  "Login": [],
+  "AllEmpRecord": [],
+  "isEnabled":true,
+  "ManDays":[
+    {
+      "DayString": "Monday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "TuesDay",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "Wednesday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "Thursday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "Friday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "Saturday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    },
+    {
+      "DayString": "Sunday",
+      "Timein": "12:00 AM",
+      "Timeout": "12:00 AM",
+      "totalHour": 0
+    }
+  ],
+  "CutoffMonth":[
+    {
+      "Key": "",
+      "Value": ""
+    },
+    {
+      "Key": "January",
+      "Value": "January"
+    },
+    {
+      "Key": "February",
+      "Value": "February"
+    },
+    {
+      "Key": "March",
+      "Value": "March"
+    },
+    {
+      "Key": "April",
+      "Value": "April"
+    },
+    {
+      "Key": "May",
+      "Value": "May"
+    },
+    {
+      "Key": "June",
+      "Value": "June"
+    },
+    {
+      "Key": "July",
+      "Value": "July"
+    },
+    {
+      "Key": "August",
+      "Value": "August"
+    },
+    {
+      "Key": "September",
+      "Value": "September"
+    },
+    {
+      "Key": "October",
+      "Value": "October"
+    },
+    {
+      "Key": "November",
+      "Value": "November"
+    },
+    {
+      "Key": "December",
+      "Value": "December"
+    }
+  ],
+  "CutoffDay":[
+    {
+      "Key": "",
+      "Value": ""
+    },
+    {
+      "Key": "1 to 15",
+      "Value": "1 to 15"
+    },
+    {
+      "Key": "16 to 30",
+      "Value": "16 to 30"
+    }
+  ],
+  "CutoffYear":[
+    {
+      "Key": "",
+      "Value": ""
+    },
+    {
+      "Key": "2022",
+      "Value": "2022"
+    },
+    {
+      "Key": "2023",
+      "Value": "2023"
+    },
+    {
+      "Key": "2024",
+      "Value": "2024"
+    },
+    {
+      "Key": "2025",
+      "Value": "2025"
+    },
+    {
+      "Key": "2026",
+      "Value": "2026"
+    },
+    {
+      "Key": "2027",
+      "Value": "2027"
+    },
+    {
+      "Key": "2028",
+      "Value": "2028"
+    },
+    {
+      "Key": "2029",
+      "Value": "2029"
+    },
+    {
+      "Key": "2030",
+      "Value": "2030"
+    },
+    {
+      "Key": "2031",
+      "Value": "2031"
+    },
+    {
+      "Key": "2032",
+      "Value": "2032"
+    }
+  ],
+  "Decision": [
+    {
+      "Key": "",
+      "Value": ""
+    },
+    {
+      "Key": "Approved",
+      "Value": "Approved"
+    },
+    {
+      "Key": "Reject",
+      "Value": "Reject"
+    }
+  ],
+  "ExpenseType": [
+    {
+      "Key": "",
+      "Value": ""
+    },
+    {
+      "Key": "FUEL",
+      "Value": "Gasoline/Diesel"
+    },
+    {
+      "Key": "COMMUNICATION",
+      "Value": "Cellular Load"
+    },
+    {
+      "Key": "TOLL & PARKING",
+      "Value": "RFID Load/Toll Fee/Parking"
+    },
+    {
+      "Key": "SUPPLIES",
+      "Value": "Office/Operations Supplies"
+    },
+    {
+      "Key": "RENTAL",
+      "Value": "Rental Fees"
+    },
+    {
+      "Key": "AMORTIZATION",
+      "Value": "Monthly Amortization"
+    },
+    {
+      "Key": "R&M",
+      "Value": "Vehicle Repair and Maintenance"
+    },
+    {
+      "Key": "UTILITY",
+      "Value": "Electricity/Water/Internet"
+    },
+    {
+      "Key": "OFFICE R&M",
+      "Value": "Office Repair and Maintenance"
+    },
+    {
+      "Key": "NEW EQUIPMENT",
+      "Value": "Purchase of New Equipment"
+    },
+    {
+      "Key": "MISCELLANEOUS",
+      "Value": "Other Expenses"
+    }
+  ]
+}

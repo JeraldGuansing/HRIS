@@ -1,0 +1,147 @@
+
+<mvc:View controllerName="WEBAP.RFID.view.Payslip"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout" 
+xmlns:t="sap.ui.table"
+xmlns:html="http://www.w3.org/1999/xhtml">
+<Page id="Approvalform" showHeader="true" title="Payslip">
+	<OverflowToolbar>
+        <Label text="Cutoff"/>
+        <Select id="CutoffMonth" change="onChangeState" selectedKey="{oModel>/DataRecord/CutoffMonth}" items="{oModel>/CutoffMonth}" required="true">
+            <core:Item key="{oModel>Key}" text="{oModel>Value}"/>
+        </Select>
+        <Select id="CutoffDay" change="onChangeState" selectedKey="{oModel>/DataRecord/CutoffDay}" items="{oModel>/CutoffDay}" required="true">
+            <core:Item key="{oModel>Key}" text="{oModel>Value}"/>
+        </Select>
+        <Select id="CutoffYear" change="onChangeState" selectedKey="{oModel>/DataRecord/CutoffYear}" items="{oModel>/CutoffYear}" required="true">
+            <core:Item key="{oModel>Key}" text="{oModel>Value}"/>
+        </Select>
+        <Button text="Generate" icon="sap-icon://action-settings" press="handlePrint"/>
+</OverflowToolbar>
+</Page>
+</mvc:View>  
+
+<!-- <mvc:View controllerName="WEBAP.RFID.view.Payslip" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+ xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+ <App id="idAppControl">
+  <pages>
+   <Page title="{i18n>title}">
+    <content>
+     <IconTabBar class="sapUiSizeCompact">
+      <items>
+       <IconTabFilter text="Header Information">
+        <Panel class="sapUiSizeCompact" expandable="true" expanded="true" width="100%" height="auto">
+         <headerToolbar>
+          <Toolbar>
+           <Text text="Header Details"/>
+           <ToolbarSpacer/>
+           <SearchField width="40%"/>
+           <Button icon="sap-icon://refresh" type="Accept"/>
+          </Toolbar>
+         </headerToolbar>
+         <content>
+          <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+           adjustLabelSpan="false" emptySpanXL="0" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+           singleContainerFullSize="false">
+           <f:content>
+            <core:Title/>
+            <Label text="School Name"/>
+            <Input enabled="false" value="{genericAlias>/scName}"/>
+            <Label text="Owner Name"/>
+            <Input enabled="false" value="{genericAlias>/ownName}"/>
+            <Label text="Owner E-mail"/>
+            <Input enabled="false" value="{genericAlias>/ownMail}"/>
+            <core:Title/>
+            <Label text="Owner Mobile No."/>
+            <Input enabled="false" value="{genericAlias>/ownMobile}"/>
+            <Label text="Owner Staus"/>
+            <Input enabled="false" value="{genericAlias>/ownStatus}"/>
+            <Label text="Scholl Address"/>
+            <TextArea rows="3" enabled="false" value="{genericAlias>/scaddress}"/>
+           </f:content>
+          </f:SimpleForm>
+         </content>
+        </Panel>
+        <Table items="{genericAlias>/studentDetails}">
+         <columns>
+          <Column>
+           <Text text="Sudent Id"/>
+          </Column>
+          <Column demandPopin="true">
+           <Text text="Student Name"/>
+          </Column>
+          <Column demandPopin="true">
+           <Text text="Student Mobile No."/>
+          </Column>
+          <Column demandPopin="true">
+           <Text text="Student Email-ID"/>
+          </Column>
+          <Column demandPopin="true">
+           <Text text="Student Standard"/>
+          </Column>
+         </columns>
+         <ColumnListItem>
+          <cells>
+           <ObjectStatus text="{genericAlias>stuId}" state="Success"/>
+           <Text text="{genericAlias>stuName}"/>
+           <Text text="{genericAlias>stuMobNo}"/>
+           <Text text="{genericAlias>stuEmail}"/>
+           <Text text="{genericAlias>stuStand}"/>
+          </cells>
+         </ColumnListItem>
+        </Table>
+       </IconTabFilter>
+       <IconTabFilter text="Branch Information">
+        <Table items="{genericAlias>/branchDetails}">
+         <headerToolbar>
+          <Toolbar>
+           <ToolbarSpacer/>
+           <SearchField width="40%"/>
+           <Button icon="sap-icon://refresh" type="Accept"/>
+          </Toolbar>
+         </headerToolbar>
+         <columns>
+          <Column>
+           <Text text="Branch Code"/>
+          </Column>
+          <Column >
+           <Text text="Branch Principal Name"/>
+          </Column>
+          <Column minScreenWidth="Tablet" demandPopin="true">
+           <Text text="Location"/>
+          </Column>
+          <Column minScreenWidth="Tablet" demandPopin="true">
+           <Text text="Email-Id"/>
+          </Column>
+          <Column minScreenWidth="Tablet" demandPopin="true">
+           <Text text="Telephone No."/>
+          </Column>
+         </columns>
+         <ColumnListItem>
+          <cells>
+           <ObjectStatus text="{genericAlias>BRCode}" state="Success"/>
+           <Text text="{genericAlias>BRPRName}"/>
+           <Text text="{genericAlias>Location}"/>
+           <Text text="{genericAlias>Email}"/>
+           <Text text="{genericAlias>TelephoneNo}"/>
+          </cells>
+         </ColumnListItem>
+        </Table>
+       </IconTabFilter>
+      </items>
+     </IconTabBar>
+    </content>
+    <footer >
+     <Toolbar class="sapUiSizeCompact">
+      <ToolbarSpacer/>
+      <Button icon="sap-icon://print" text="Print" type="Accept" press="handlePrint"/>
+      <Button text="Verify" type="Accept"/>
+     </Toolbar>
+    </footer>
+   </Page>
+  </pages>
+ </App>
+</mvc:View> -->

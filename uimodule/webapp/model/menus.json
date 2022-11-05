@@ -1,0 +1,36 @@
+{
+
+	"navigation": [{
+			"title": "Goods Receipt",
+			"icon": "sap-icon://receipt",
+			"expanded": true,
+			"key": "goodsReceipt"
+
+		},{
+			"title": "Goods Issue",
+			"icon": "sap-icon://supplier",
+			"expanded": true,
+			"key": "goodsIssue"
+		}, {
+			"title": "Transfer",
+			"icon": "sap-icon://factory",
+			"expanded": true,
+			"key": "Transfer"
+		},
+		{
+			"title": "Inventory Count/Posting",
+			"icon": "sap-icon://collections-management",
+			"expanded": true,
+			"key": "Count"
+		},
+		{
+			"title": "Warehouse Report",
+			"icon": "sap-icon://electronic-medical-record",
+			"expanded": true,
+			"key": "warehouseReport"
+
+		}
+	],
+	"VendorList":[],
+	"Notif": "11+"
+}

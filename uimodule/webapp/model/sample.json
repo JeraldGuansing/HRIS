@@ -1,0 +1,68 @@
+{           
+    "scName" : "Vikas Bal Vidya Mandir",
+    "ownMobile" : "2121212121",
+    "ownName" : "Vikas singh",
+   "ownMail" : "info.vikask41@gmail.com",
+   "ownStatus":"Active",
+   "scaddress": "Opposite KPIT Cummins, IT Park, Phase 1, Hinjawadi, Pune, Maharashtra 411057",
+   
+   "studentDetails":[{
+   "stuId":"101",
+   "stuName":"Nikhil Kumar",
+   "stuMobNo":"1111111111",
+   "stuEmail":"Nikhil@yahoo.com",
+   "stuStand":"10th"
+   },{
+   "stuId":"102",
+   "stuName":"Akash Kumar",
+   "stuMobNo":"2222222222",
+   "stuEmail":"Akash@gmail.com",
+   "stuStand":"7th"
+   },{
+   "stuId":"103",
+   "stuName":"Rahul Kumar",
+   "stuMobNo":"3333333333",
+   "stuEmail":"Rahul@yahoo.com",
+   "stuStand":"10th"
+   },{
+   "stuId":"104",
+   "stuName":"Nishant Kumar",
+   "stuMobNo":"4444444444",
+   "stuEmail":"Nishant@yahoo.com",
+   "stuStand":"5th"
+   },{
+   "stuId":"105",
+   "stuName":"Kunal singh Rajput",
+   "stuMobNo":"555555555",
+   "stuEmail":"Rajput@yahoo.com",
+   "stuStand":"10th"
+   }
+   ],
+   "branchDetails":[{
+   "BRCode":"PSA001",
+   "BRPRName":"DR.Prashnat singh",
+   "Location":"Shivaji Chowk / Hinjawadi Chowk",
+   "Email":"ShivajiChowk@gmail.com",
+   "TelephoneNo":"2323232323"
+   },{
+   "BRCode":"PPCMCA002",
+   "BRPRName":"DR.vikas singh",
+   "Location":"Mahavir ChowkChinchwad, Pimpri-Chinchwad",
+   "Email":"ChowkChinchwad@gmail.com",
+   "TelephoneNo":"3434343434"
+   },{
+   "BRCode":"PWCEA003",
+   "BRPRName":"ER.Ashutosh Jha",
+   "Location":"Wakadkar Wasti Rd,Casa Imperia",
+   "Email":"CasaImperia@gmail.com",
+   "TelephoneNo":"4545454545"
+   },
+   {
+   "BRCode":"PSA004",
+   "BRPRName":"ER.Gopal singh",
+   "Location":"near Pune Junction railway station",
+   "Email":"punerailway@gmail.com",
+   "TelephoneNo":"6767676767"
+   }
+   ]
+ }

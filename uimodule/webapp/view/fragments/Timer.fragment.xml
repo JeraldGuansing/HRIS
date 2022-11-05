@@ -1,0 +1,77 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="Daily Time Record" class="sapUiSizeCompact" contentHeight="50%" contentWidth="30%" icon="/resources/img/favicon.ico">      
+            <IconTabBar expandable="false" headerMode="Inline">
+                <items>
+                    <IconTabFilter text="Time-In">
+                        <Panel>   
+                            <headerToolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer width="31%"/>
+                                    <Title id="inTimeid" text="00:00:00:00"/>
+                                </Toolbar>
+                            </headerToolbar>
+
+                            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" width="100%">
+                           
+                            <Input width="100%" placeholder="ID Number Here" id="iIDNo" value="" required="true">
+                                <layoutData>
+                                    <l:GridData span="L2 M2 S8"/>
+                                </layoutData>
+                            </Input>
+
+                            <Input width="100%" type="Password" placeholder="PIN Number Here" id="iPINNo" value="" required="true">
+                                <layoutData>
+                                    <l:GridData span="L2 M2 S8"/>
+                                </layoutData>
+                            </Input>
+
+                            <Button  width="100%" xmlns="sap.m" text="IN" id="bttnIn" type="Emphasized" press="onTimeIn">
+                                <layoutData>
+                                    <l:GridData span="L4 M4 S8"/>
+                                </layoutData>
+                            </Button>
+                            </f:SimpleForm>
+                        </Panel>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://vertical-grip"/> 
+                    <IconTabFilter text="Time-Out">
+                        <Panel>   
+                            <headerToolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer width="31%"/>
+                                    <Title id="onTimeid" text="00:00:00:00"/>
+                                </Toolbar>
+                            </headerToolbar>
+                            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" width="100%">
+                           
+                            <Input width="100%" placeholder="ID Number Here" id="oIDNo" value="" required="true">
+                                <layoutData>
+                                    <l:GridData span="L2 M2 S8"/>
+                                </layoutData>
+                            </Input>
+
+                            <Input width="100%" type="Password" placeholder="PIN Number Here" id="oPINNo" value="" required="true">
+                                <layoutData>
+                                    <l:GridData span="L2 M2 S8"/>
+                                </layoutData>
+                            </Input>
+
+                            <Button  width="100%" xmlns="sap.m" text="OUT" id="bttnOut" type="Emphasized" press="onTimeOut">
+                                <layoutData>
+                                    <l:GridData span="L4 M4 S8"/>
+                                </layoutData>
+                            </Button>
+                            </f:SimpleForm>
+                        </Panel>
+                    </IconTabFilter>	
+                </items>
+            </IconTabBar>
+        <endButton>
+            <Button text="Close" press="onCloseTimer"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

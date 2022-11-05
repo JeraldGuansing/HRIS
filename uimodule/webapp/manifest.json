@@ -1,0 +1,247 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "WEBAP.RFID",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "WEBAP.RFID.view.Login",
+      "type": "XML",
+      "async": true,
+      "id": "idAppControl"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "WEBAP.RFID.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "WEBAP.RFID.view",
+        "controlId": "idAppControl",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "RouteLogin",
+          "pattern": "RouteLogin",
+          "target": ["TargetLogin"]
+        },
+        {
+          "name": "Login",
+          "pattern": "Login",
+          "target": ["Login"]
+        },
+        {
+          "name": "MainMenu",
+          "pattern": "MainMenu",
+          "target": ["MainMenu"]
+        },
+        {
+          "name": "Users",
+          "pattern": "Employee",
+          "target": ["Users"]
+        },
+        {
+          "name": "OverTime",
+          "pattern": "OverTime",
+          "target": ["OverTime"]
+        },
+        { 
+          "name": "Attendance",
+          "pattern": "MyAttendance",
+          "target": ["Attendance"]
+        },
+        { 
+          "name": "Leave",
+          "pattern": "Leave",
+          "target": ["Leave"]
+        },
+        { 
+          "name": "Loan",
+          "pattern": "Loan",
+          "target": ["Loan"]
+        },
+        { 
+          "name": "Payslip",
+          "pattern": "Payslip",
+          "target": ["Payslip"]
+        },
+        { 
+          "name": "Expense",
+          "pattern": "Expense",
+          "target": ["Expense"]
+        },
+        { 
+          "name": "Approval",
+          "pattern": "Approval",
+          "target": ["Approval"]
+        },
+        { 
+          "name": "DashBoard",
+          "pattern": "DashBoard",
+          "target": ["DashBoard"]
+        }
+      ],
+      "targets": {
+        "TargetLogin": {
+          "viewType": "XML",
+          "viewLevel": 1,
+          "viewName": "Login"
+        },
+        "Login": {
+          "viewType": "XML",
+          "viewPath": "WEBAP.RFID.view",
+          "viewLevel": 1,
+          "viewName": "Login",
+          "transition": "flip"
+				},
+        "MainMenu": {
+          "viewPath": "WEBAP.RFID.view",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "viewName": "MainMenu",
+          "transition": "flip"
+				},
+        "Users":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Users",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "OverTime":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"OverTime",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Attendance":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Attendance",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Leave":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Leave",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Loan":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Loan",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Payslip":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Payslip",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Expense":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Expense",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Approval":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Approval",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "DashBoard":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"DashBoard",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        }
+      }
+    }
+  }
+}
