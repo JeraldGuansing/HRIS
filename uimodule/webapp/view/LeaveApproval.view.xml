@@ -1,5 +1,5 @@
 
-<mvc:View controllerName="WEBAP.RFID.view.Approval"
+<mvc:View controllerName="WEBAP.RFID.view.LeaveApproval"
 xmlns:core="sap.ui.core" 
 xmlns:mvc="sap.ui.core.mvc" 
 xmlns="sap.m" 
@@ -7,7 +7,7 @@ xmlns:f="sap.ui.layout.form"
 xmlns:l="sap.ui.layout" 
 xmlns:t="sap.ui.table"
 xmlns:html="http://www.w3.org/1999/xhtml">
-<Page id="Approvalform" showHeader="true" title="Overtime Approval">
+<Page id="LeaveApprovalform" showHeader="true" title="Leave Approval">
 	<!-- <VBox class="sapUiSmallMargin"> -->
 		<Panel>
 				<t:Table
@@ -33,37 +33,24 @@ xmlns:html="http://www.w3.org/1999/xhtml">
 						<t:Column width="15%">
 							<Label text="Date" required="true"/>
 								<t:template>
-									<Input editable="false" value="{oModel>OverTimeDte}"/>
+									<Input editable="false" value="{oModel>LeaveDte}"/>
 								</t:template>
 						</t:Column>
 			
 						<t:Column width="12%">
-							<Label text="Time-In"/>
+							<Label text="Nature of Leave"/>
 								<t:template>
-									<Input editable="false" value="{oModel>Timein}" width="100%"/>
+									<Input editable="false" value="{oModel>LeaveType}" width="100%"/>
 								</t:template>
 						</t:Column>
 
-						<t:Column width="12%"> 
-							<Label text="Time-Out"/>
+						<t:Column width="30%"> 
+							<Label text="Reason"/>
 								<t:template>
-									<Input editable="false" value="{oModel>Timeout}" width="100%"/>
+									<Input editable="false" value="{oModel>Reason}" width="100%"/>
 								</t:template>
 						</t:Column>
 
-						<t:Column width="14%">
-							<Label text="Total Hours" required="true"/>
-								<t:template>
-									<Input editable="false" value="{oModel>totalHour}" width="100%" />
-								</t:template>
-						</t:Column>
-
-						<t:Column width="25%">
-							<Label text="Remarks" required="true"/>
-								<t:template>
-									<Input editable="false" value="{oModel>Remarks}" width="100%" />
-								</t:template>
-						</t:Column>
 
 						<t:Column width="15%">
 							<Label text="Status" required="true"/>

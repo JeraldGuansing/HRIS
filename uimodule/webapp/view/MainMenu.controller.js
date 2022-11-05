@@ -107,14 +107,26 @@ sap.ui.define([
             this.router = this.getOwnerComponent().getRouter();
             this.router.navTo("Approval");
           },
-
+          
           onDashBaord: function(){
             this.router = this.getOwnerComponent().getRouter();
             this.router.navTo("DashBoard");
           },
 
+          onLeaveApproval: function(){
+            this.router = this.getOwnerComponent().getRouter();
+            this.router.navTo("LeaveApproval");
+          },
 
+          onBudget: function(){
+            this.router = this.getOwnerComponent().getRouter();
+            this.router.navTo("Budget");
+          },
 
+          onLoanApproval: function(){
+            this.router = this.getOwnerComponent().getRouter();
+            this.router.navTo("LoanApproval");
+          },
 
     });
   });

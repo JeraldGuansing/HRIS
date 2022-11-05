@@ -504,7 +504,25 @@ sap.ui.define([
 
     getlength: function (number) {
       return number.toString().length;
-  }
+    },
+    
+    getNumberofWeek: function(){
+      currentDate = new Date();
+      startDate = new Date(currentDate.getFullYear(), 0, 1);
+      var days = Math.floor((currentDate - startDate) /(24 * 60 * 60 * 1000));
+         
+      return weekNumber = Math.ceil(days / 7);
+    },
+
+    generateIDKey:function() {
+      var length = 8,
+        charset = "123141erterertxgdfgwerabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+      for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+      }
+      return retVal;
+      },
 
 
 	});

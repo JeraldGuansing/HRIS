@@ -12,7 +12,7 @@ sap.ui.define([
     "sap/m/MessageBox"
 ], function(Controller, JSONModel, MessageToast,Fragment,Popover,Button,library,Filter,FilterOperator,APPui5,MessageBox) {
   "use strict";
-  return Controller.extend("WEBAP.RFID.view.Loan", {
+  return Controller.extend("WEBAP.RFID.view.Budget", {
     onBeforeRendering:async function () {
       await this.onLoadAllData();
     },
@@ -26,6 +26,7 @@ sap.ui.define([
               onAfterHide: function(evt) {
                 },
               onAfterShow: function(evt) {
+                oView.getController().onLoadAllData();
                 },
               onBeforeFirstShow: function(evt) {
                 },
@@ -39,56 +40,63 @@ sap.ui.define([
       
     initialize: function(){
         this.oModel.getData().DataRecord={};
+        this.onLoadAllData();
     },
 
     onLoadAllData: async function(){
       this.userCode = jQuery.sap.storage.Storage.get("IDNo");
       this.oModel.getData().DataRecord={};
       this.oModel.getData().DataRecords=[];
-      this.oModel.getData().DataRecords = await APPui5.ExecQuery("myLoan","Array",jQuery.sap.storage.Storage.get("IDNo"),"","","",false);
+      var isYear = APPui5.getCurrentYear();
+      this.oModel.getData().AllWeeks = await APPui5.ExecQuery("getWeeks","Array",  isYear,"","","",false);
       this.oModel.refresh();
     },
 
     onPostLoan: async function(){
-      if(this.getView().byId("LoanType").getSelectedKey() === "" || this.getView().byId("LoanType").getSelectedKey() === null || this.getView().byId("LoanType").getSelectedKey() === undefined){
-        this.getView().byId("LoanType").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("BudgetTypeid").getSelectedKey() === "" || this.getView().byId("BudgetTypeid").getSelectedKey() === null || this.getView().byId("BudgetTypeid").getSelectedKey() === undefined){
+        this.getView().byId("BudgetTypeid").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
-      if(this.getView().byId("inptLoanAmount").getValue() === "" || this.getView().byId("inptLoanAmount").getValue() === null || this.getView().byId("inptLoanAmount").getValue() === undefined){
-        this.getView().byId("inptLoanAmount").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("BdgetAmount").getValue() === "" || this.getView().byId("BdgetAmount").getValue() === null || this.getView().byId("BdgetAmount").getValue() === undefined){
+        this.getView().byId("BdgetAmount").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
-      if(this.getView().byId("RemarksId").getValue() === "" || this.getView().byId("RemarksId").getValue() === null || this.getView().byId("RemarksId").getValue() === undefined){
-        this.getView().byId("RemarksId").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("PaticularId").getValue() === "" || this.getView().byId("PaticularId").getValue() === null || this.getView().byId("PaticularId").getValue() === undefined){
+        this.getView().byId("PaticularId").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
+      if(this.getView().byId("WeekNumber").getValue() === "" || this.getView().byId("WeekNumber").getValue() === null || this.getView().byId("WeekNumber").getValue() === undefined){
+        this.getView().byId("WeekNumber").setValueState(sap.ui.core.ValueState.Error);
+        return;
+      }
+      
       var oData = {};
       var oHeader = {};
-      oData.LOAN = [];
+      oData.OBDG = [];
       oHeader.O = "I";
       oHeader.IDNo = this.userCode;
-      oHeader.TransId = APPui5.generateIDKey();
-      oHeader.LoanType = this.getView().byId("LoanType").getSelectedKey();
-      oHeader.LoanAmount =  this.getView().byId("inptLoanAmount").getValue();
-      oHeader.Remarks =  this.getView().byId("RemarksId").getValue();
-      oHeader.Status = 'Pending';
+      oHeader.BudgetType = this.getView().byId("BudgetTypeid").getSelectedKey();
+      oHeader.Weekly =  this.getView().byId("WeekNumber").getValue();
+      oHeader.Amount =  this.getView().byId("BdgetAmount").getValue();
+      oHeader.Particular =  this.getView().byId("PaticularId").getValue();
+      oHeader.Status =  'Open'
       console.log(oHeader)
-      oData.LOAN.push(oHeader);
+      oData.OBDG.push(oHeader);
       var message = await APPui5.postQuery(oData);
       if(message === 0){
-        MessageBox.success("Filing overtime successfully,\nThank you.");
+        MessageBox.success("Data save successfully,\nThank you.");
         this.oModel.getData().DataRecord={};
         this.oModel.getData().DataRecords=[];
-        this.oModel.getData().DataRecords = APPui5.ExecQuery("myLoan","Array",jQuery.sap.storage.Storage.get("IDNo"),"","","",false);
-        this.oModel.refresh();
+        this.getView().byId("BudgetTypeid").setSelectedKey("");
+        this.getView().byId("WeekNumber").setValue("");
+        this.getView().byId("BdgetAmount").setValue("");
+        this.getView().byId("PaticularId").setValue("");
       }else{
         MessageBox.error(`${message}. filing failed\nPlease contact your admin.`);
       }
-
-
     },
 
     onChangeState: function(oEvent){

@@ -3,6 +3,7 @@
   "DataRecords": [],
   "DeductRecords": [],
   "AllApprover": [],
+  "AllWeeks": [],
   "Addbutton": {
       "Name": "Add",
       "Icon": "sap-icon://add-contact" 

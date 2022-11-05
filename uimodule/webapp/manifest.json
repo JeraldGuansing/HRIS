@@ -129,6 +129,21 @@
           "name": "DashBoard",
           "pattern": "DashBoard",
           "target": ["DashBoard"]
+        },
+        { 
+          "name": "LeaveApproval",
+          "pattern": "LeaveApproval",
+          "target": ["LeaveApproval"]
+        },
+        { 
+          "name": "Budget",
+          "pattern": "Budget",
+          "target": ["Budget"]
+        },
+        { 
+          "name": "LoanApproval",
+          "pattern": "LoanApproval",
+          "target": ["LoanApproval"]
         }
       ],
       "targets": {
@@ -235,6 +250,36 @@
           "viewPath":"WEBAP.RFID.view",
           "viewType":"XML",
           "viewName":"DashBoard",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "LeaveApproval":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"LeaveApproval",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "Budget":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"Budget",
+          "parent":"MainMenu",
+          "controlId":"pageContainer",
+          "controlAggregation":"pages",
+          "viewLevel":"3",
+          "transition": "flip"
+        },
+        "LoanApproval":{
+          "viewPath":"WEBAP.RFID.view",
+          "viewType":"XML",
+          "viewName":"LoanApproval",
           "parent":"MainMenu",
           "controlId":"pageContainer",
           "controlAggregation":"pages",

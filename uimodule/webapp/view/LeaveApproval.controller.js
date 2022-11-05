@@ -12,7 +12,7 @@ sap.ui.define([
     "sap/m/MessageBox"
 ], function(Controller, JSONModel, MessageToast,Fragment,Popover,Button,library,Filter,FilterOperator,APPui5,MessageBox) {
   "use strict";
-  return Controller.extend("WEBAP.RFID.view.DashBaord", {
+  return Controller.extend("WEBAP.RFID.view.LeaveApproval", {
     onInit: function(oEvent){
         var that = this;
         that.oModel=new JSONModel("model/data.json");
@@ -36,13 +36,40 @@ sap.ui.define([
     },
       
     initialize:  function(){
+      
+    },
+
+    onUpdate: async function(){
+      var busyDialog = new sap.m.BusyDialog();
+      busyDialog.open();
+
+      var oData = {};
+      var oHeader = {};
+      var message = 0;
+      for(let a = 0; a < this.oModel.getData().DataRecords.length; a++){
+        if(this.oModel.getData().DataRecords[a].Status !== "" || this.oModel.getData().DataRecords[a].Status !== null || this.oModel.getData().DataRecords[a].Status !== undefined){
+          oData.OLVE= [];
+          oHeader.O = "U";
+          oHeader.Id = this.oModel.getData().DataRecords[a].Id;
+          oHeader.Status = this.oModel.getData().DataRecords[a].Status;
+          oData.OLVE.push(oHeader);
+          message = await APPui5.postQuery(oData);
+          message = parseInt(message) + parseInt(message);
+        }
+      }
+      if(message === 0){
+        MessageBox.success("Data saved successfully.");
+      }else{
+        MessageBox.error(`${message}. Data not saved.`);
+      }
+      
+      busyDialog.close();
       this.loadAllData();
     },
 
     loadAllData: function(){
       this.oModel.getData().DataRecords=[];
-      this.oModel.getData().DataRecords = APPui5.ExecQuery("getAllSched","Array",jQuery.sap.storage.Storage.get("IDNo"),"","","",false);
-      console.log(this.oModel.getData().DataRecords)
+      this.oModel.getData().DataRecords = APPui5.ExecQuery("getAllLeave","Array",jQuery.sap.storage.Storage.get("IDNo"),"","","",false);
       this.oModel.refresh(); 
     },
 

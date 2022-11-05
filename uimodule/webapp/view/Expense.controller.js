@@ -57,44 +57,51 @@ sap.ui.define([
     },
 
     onPostLoan: async function(){
-      if(this.getView().byId("LoanType").getSelectedKey() === "" || this.getView().byId("LoanType").getSelectedKey() === null || this.getView().byId("LoanType").getSelectedKey() === undefined){
-        this.getView().byId("LoanType").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("ExpnseType").getSelectedKey() === "" || this.getView().byId("ExpnseType").getSelectedKey() === null || this.getView().byId("ExpnseType").getSelectedKey() === undefined){
+        this.getView().byId("ExpnseType").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
-      if(this.getView().byId("inptLoanAmount").getValue() === "" || this.getView().byId("inptLoanAmount").getValue() === null || this.getView().byId("inptLoanAmount").getValue() === undefined){
-        this.getView().byId("inptLoanAmount").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("inpExpnsAmount").getValue() === "" || this.getView().byId("inpExpnsAmount").getValue() === null || this.getView().byId("inpExpnsAmount").getValue() === undefined){
+        this.getView().byId("inpExpnsAmount").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
-      if(this.getView().byId("RemarksId").getValue() === "" || this.getView().byId("RemarksId").getValue() === null || this.getView().byId("RemarksId").getValue() === undefined){
-        this.getView().byId("RemarksId").setValueState(sap.ui.core.ValueState.Error);
+      if(this.getView().byId("inpExpnsReceipt").getValue() === "" || this.getView().byId("inpExpnsReceipt").getValue() === null || this.getView().byId("inpExpnsReceipt").getValue() === undefined){
+        this.getView().byId("inpExpnsReceipt").setValueState(sap.ui.core.ValueState.Error);
         return;
       }
 
+      if(this.getView().byId("DateId").getValue() === "" || this.getView().byId("DateId").getValue() === null || this.getView().byId("DateId").getValue() === undefined){
+        this.getView().byId("DateId").setValueState(sap.ui.core.ValueState.Error);
+        return;
+      }
+      
+      var dateparam = APPui5.getDatePostingFormat(this.oModel.getData().DataRecord.CreatedDate);
       var oData = {};
       var oHeader = {};
-      oData.LOAN = [];
+      oData.OEXP = [];
       oHeader.O = "I";
       oHeader.IDNo = this.userCode;
-      oHeader.LoanType = this.getView().byId("LoanType").getSelectedKey();
-      oHeader.LoanAmount =  this.getView().byId("inptLoanAmount").getValue();
+      oHeader.ExpenseType = this.getView().byId("ExpnseType").getSelectedKey();
+      oHeader.Amount =  this.getView().byId("inpExpnsAmount").getValue();
+      oHeader.ReceiptNo =  this.getView().byId("inpExpnsReceipt").getValue();
       oHeader.Remarks =  this.getView().byId("RemarksId").getValue();
-      oHeader.Status = 'Pending';
+      oHeader.ExpDte =  this.getView().byId("DateId").getValue();
+      // oHeader.Status = 'Pending';
       console.log(oHeader)
-      oData.LOAN.push(oHeader);
+      oData.OEXP.push(oHeader);
       var message = await APPui5.postQuery(oData);
       if(message === 0){
-        MessageBox.success("Filing overtime successfully,\nThank you.");
+        MessageBox.success("Data Save successfully,\nThank you.");
         this.oModel.getData().DataRecord={};
         this.oModel.getData().DataRecords=[];
-        this.oModel.getData().DataRecords = APPui5.ExecQuery("myLoan","Array",this.userCode,"","","",false);
+      
+        this.oModel.getData().DataRecords = await APPui5.ExecQuery("getExpense","Array",  dateparam,"","","",false);
         this.oModel.refresh();
       }else{
         MessageBox.error(`${message}. filing failed\nPlease contact your admin.`);
       }
-
-
     },
 
     onChangeState: function(oEvent){

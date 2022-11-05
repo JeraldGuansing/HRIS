@@ -25,20 +25,32 @@
       </tnt:header>
       <tnt:sideContent>
       <tnt:SideNavigation expanded="true" selectedKey="" itemSelect="onItemSelect">
-        <tnt:NavigationList id="navigationList">    
+        <tnt:NavigationList id="navigationList">
+          <tnt:NavigationListItem id="Nav000" text="Dashboard" icon="sap-icon://database" select="onDashBaord"/>    
           <tnt:NavigationListItem id="Nav00" text="My Attendance" icon="sap-icon://dimension" select="onGotomyAttendance"/>
           <tnt:NavigationListItem id="Nav01" text="Overtime" icon="sap-icon://customer-history" select="onOverTime"/>
           <tnt:NavigationListItem id="Nav02" text="Leave" icon="sap-icon://activity-items" select="onLeave"/>   
           <tnt:NavigationListItem id="Nav03" text="Loan" icon="sap-icon://sales-order" select="onLoan"/>   
           <tnt:NavigationListItem id="Nav04" text="Payslip" icon="sap-icon://customer-financial-fact-sheet" select="onPayslip"/>    
 
-          <tnt:NavigationListItem id="Nav05" text="Approval" icon="sap-icon://decision" select="onApproval"/>
-          
+
+          <tnt:NavigationListItem id="Nav05" expanded="false" select="onRootItemSelect" text="Approval" icon="sap-icon://decision">
+            <tnt:NavigationListItem text="OverTime Approval" select="onApproval"/>
+            <tnt:NavigationListItem text="Leave Approval" select="onLeaveApproval"/>
+		  	  </tnt:NavigationListItem>
+
           <tnt:NavigationListItem id="Nav08" text="Employee" icon="sap-icon://collaborate" select="onGotoEmployee"/>       
-          <tnt:NavigationListItem id="Nav06" text="Budget/Expense" icon="sap-icon://collections-insight" select="onExpense"/>   
-          <tnt:NavigationListItem id="Nav09" text="Billing" icon="sap-icon://money-bills" select=""/>
-          <tnt:NavigationListItem id="Nav11" text="Deduction" icon="sap-icon://hr-approval" select=""/>    
-          <tnt:NavigationListItem id="Nav10" text="Loan Approval" icon="sap-icon://monitor-payments" select=""/> 
+
+        <tnt:NavigationListItem id="Nav06" expanded="false" select="onRootItemSelect" text="Budget/Expense" icon="sap-icon://collections-insight">
+          <tnt:NavigationListItem text="Request Budget" select="onBudget"/>
+          <tnt:NavigationListItem text="Encode Expense" select="onExpense"/>
+        </tnt:NavigationListItem>
+
+          
+          <!-- <tnt:NavigationListItem id="Nav09" text="Billing" icon="sap-icon://money-bills" select=""/> -->
+          <!-- <tnt:NavigationListItem id="Nav11" text="Deduction" icon="sap-icon://hr-approval" select=""/>     -->
+          <tnt:NavigationListItem id="Nav10" text="Loan Approval" icon="sap-icon://monitor-payments" select="onLoanApproval"/> 
+          <tnt:NavigationListItem id="Nav12" text="Loan Payment" icon="sap-icon://batch-payments" select=""/> 
           <tnt:NavigationListItem id="Nav07" text="Report" icon="sap-icon://business-objects-experience" select=""/>    
          
           <tnt:NavigationListItem text="Logout" icon="sap-icon://log" select="onLogin"/>

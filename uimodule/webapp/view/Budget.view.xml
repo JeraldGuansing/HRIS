@@ -1,0 +1,87 @@
+
+<mvc:View controllerName="WEBAP.RFID.view.Budget"
+xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout" 
+xmlns:t="sap.ui.table"
+xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="BudgetForm" showHeader="true" title="Budget">
+			<OverflowToolbar>
+				<Button text="Submit" press="onPostLoan" icon="sap-icon://accept"/>
+			</OverflowToolbar>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm editable="true" id="form3" layout="ResponsiveGridLayout" width="100%">
+				   				
+					<Label text="Budget Type" width="100%" visible="true">
+						<layoutData>
+							<l:GridData span="L2 M2 S12"/>
+						</layoutData>
+					</Label>
+					
+                    <Select id="BudgetTypeid" change="onChangeState" selectedKey="{oModel>/DataRecord/BudgetType}">
+						<items>
+                            <core:Item text="" key=""/>
+                            <core:Item text="Weekly" key="Weekly"/>
+                            <core:Item text="One-Time" key="One-Time"/>
+                        </items>
+                        <layoutData>
+				    		<l:GridData span="L4 M4 S12"/>
+				    	</layoutData>
+					</Select>
+
+                    <Label text="Weeks" width="100%">
+				    	<layoutData>
+				    		<l:GridData span="L2 M2 S12"/>
+				    	</layoutData>
+				    </Label>
+                
+                    <ComboBox id="WeekNumber" change="onChangeState" showButton="true" items="{oModel>/AllWeeks}">
+                        <core:ListItem key="{oModel>WeekNo}" text="{oModel>WeekNo} ({oModel>From} - {oModel>To})"/>
+                            <layoutData>
+                                <l:GridData span="L4 M4 S12"/>
+                            </layoutData>
+                    </ComboBox>
+
+                    <Label text="Particulars" width="100%">
+				    	<layoutData>
+				    		<l:GridData span="L2 M2 S12"/>
+				    	</layoutData>
+				    </Label>
+
+                    <TextArea id="PaticularId" rows="4" change="onChangeState" value="{oModel>/DataRecord/Particular}" width="100%">
+                        <layoutData>
+                            <l:GridData span="L4 M4 S12"/>
+                        </layoutData>
+                    </TextArea>
+
+                    <Label text="Amount" width="100%">
+				    	<layoutData>
+				    		<l:GridData span="L2 M2 S12"/>
+				    	</layoutData>
+				    </Label>
+
+                    <Input id="BdgetAmount"
+                        width="100%"
+                        value="{
+                        path: 'oModel>/DataRecord/Amount',
+                        type: 'sap.ui.model.type.Float',
+                        formatOptions: {
+                            maxFractionDigits: 2,
+                            minFractionDigits: 2
+                        }
+                    }"
+                    change="onChangeState"  
+                    required="true" 
+                    placeholder="Amount">
+                        <layoutData>
+                            <l:GridData span="L4 M4 S12"/>
+                        </layoutData>
+                    </Input>
+
+				</f:SimpleForm>
+			</VBox>
+           
+	</Page>
+</mvc:View>  
