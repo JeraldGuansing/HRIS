@@ -99,6 +99,7 @@ sap.ui.define([
         this._oValueHelpDialogEmp = oValueHelpDialogEmp;
         this.getView().addDependent(this._oValueHelpDialogEmp);
         this.oModel.getData().AllEmpRecord = APPui5.ExecQuery("getAllEmployee","Array","","","","",false);
+        console.log(this.oModel.getData().AllEmpRecord)
         this._oValueHelpDialogEmp.open();
       }.bind(this));
     },
@@ -178,7 +179,7 @@ sap.ui.define([
         
         this.oModel.getData().Addbutton.Name= "Update";
         this.oModel.getData().Addbutton.Icon= "sap-icon://save";
-
+        console.log(this.oModel.getData().DataRecord)
         this.oModel.refresh();
     },
 
@@ -423,7 +424,7 @@ sap.ui.define([
 
     onPostData: async function(){
       var perH = parseInt(this.oModel.getData().DataRecord.BasicPay) / 30;
-      perH = APPui5.onRound(perH) / parseInt(this.oModel.getData().DataRecord.WorkHours);
+      perH = APPui5.onRound(perH,2) / parseInt(this.oModel.getData().DataRecord.WorkHours);
       var oData = {};
       var oHeader = {};
       oData.OEMP= [];
@@ -489,7 +490,7 @@ sap.ui.define([
     },
     onUpdateData: async function(){
       var perH = parseInt(this.oModel.getData().DataRecord.BasicPay) / 30;
-      perH = APPui5.onRound(perH) / parseInt(this.oModel.getData().DataRecord.WorkHours);
+      perH = APPui5.onRound(perH,2) / parseInt(this.oModel.getData().DataRecord.WorkHours);
       var oData = {};
       var oHeader = {};
       oData.OEMP= [];
@@ -595,7 +596,7 @@ sap.ui.define([
      }
 
      if(result === "inptWorkHours"){
-      this.oModel.getData().DataRecord.WorkHours = APPui5.onRound(this.oModel.getData().DataRecord.WorkHours);
+      this.oModel.getData().DataRecord.WorkHours = APPui5.onRound(this.oModel.getData().DataRecord.WorkHours,2);
      }
 
     },

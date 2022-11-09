@@ -65,17 +65,28 @@ sap.ui.define([
         return;
       }
 
+      var transId = await APPui5.ExecQuery("getLastLoanId","Array","","","","",false);
+      var insertId = "";
+      if(transId.length !== 0 && transId[0].id !== null){
+        var intNum = parseInt(transId[0].id) + 1;
+        insertId = "LN" + APPui5.zeroPad(intNum, 5);
+      }else{
+        insertId = "LN00001"
+      }
+
+      var LoanAmount = APPui5.onRound(this.oModel.getData().DataRecord.LoanAmount,2);
+
       var oData = {};
       var oHeader = {};
       oData.LOAN = [];
       oHeader.O = "I";
       oHeader.IDNo = this.userCode;
-      oHeader.TransId = APPui5.generateIDKey();
+      oHeader.TransId = insertId;
       oHeader.LoanType = this.getView().byId("LoanType").getSelectedKey();
-      oHeader.LoanAmount =  this.getView().byId("inptLoanAmount").getValue();
+      oHeader.LoanAmount =  LoanAmount;
       oHeader.Remarks =  this.getView().byId("RemarksId").getValue();
       oHeader.Status = 'Pending';
-      console.log(oHeader)
+    
       oData.LOAN.push(oHeader);
       var message = await APPui5.postQuery(oData);
       if(message === 0){

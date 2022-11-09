@@ -9,7 +9,7 @@ xmlns:t="sap.ui.table"
 xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page id="loanForm" showHeader="true" title="Loan">
 			<OverflowToolbar>
-				<Button text="Add" press="onPostLoan" icon="sap-icon://add"/>
+				<Button text="Submit" press="onPostLoan" icon="sap-icon://add"/>
 			</OverflowToolbar>
 			<VBox class="sapUiSmallMargin">
 				<f:Form editable="true">
@@ -83,7 +83,16 @@ xmlns:html="http://www.w3.org/1999/xhtml">
 							<t:Column width="12%">
 								<Label text="Amount"/>
 									<t:template>
-										<Input editable="false" value="{oModel>LoanAmount}" width="100%"/>
+										<Input editable="false" 
+										value="{
+											path: 'oModel>LoanAmount',
+											type: 'sap.ui.model.type.Float',
+											formatOptions: {
+												maxFractionDigits: 2,
+												minFractionDigits: 2
+											}
+										}"
+										width="100%"/>
 									</t:template>
 							</t:Column>
 		

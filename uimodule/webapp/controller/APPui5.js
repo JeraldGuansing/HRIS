@@ -255,9 +255,9 @@ sap.ui.define([
       return false;
     },
   
-    onRound: function (value) {
-      return (+(Math.round(value + "e+" + 2) + "e-" + 2)) || 0;
-    },
+    onRound: function (value, precision) {
+			return (+(Math.round(value + "e+" + precision) + "e-" + precision)) || 0;
+		},
   
 
     ExecQuery: function (sQueryTag, sRootModel, sV1 = "", sV2 = "", sV3 = "", sV4 = "", isAsync = false) {
@@ -472,7 +472,7 @@ sap.ui.define([
         fTime = digit1 + "." + digit2;
       }
 
-      return this.onRound(fTime);
+      return this.onRound(fTime,2);
     },
  
     convertAllHour:function(time) {

@@ -342,7 +342,7 @@ sap.ui.define([
                 // }
 
                 var empDetails = await APPui5.ExecQuery("EmpDetails","Array",UID,"","","",false);
-                var oEarning = APPui5.onRound(empDetails[0].perHour);
+                var oEarning = APPui5.onRound(empDetails[0].perHour,2);
 
                 var totalEarning = oEarning * totalHr;
                 var totalTardi =0;
@@ -354,7 +354,7 @@ sap.ui.define([
                   oHeader.O = "U";
                   oHeader.Id = oTimeIn[0].Id;
                   oHeader.Timeout = oTimer;
-                  oHeader.Earning =  APPui5.onRound(totalEarning);
+                  oHeader.Earning =  APPui5.onRound(totalEarning,2);
                   oHeader.Tardi = totalTardi;
                   oHeader.totalHour = totalHr;
                   oHeader.Status = 'Pending';

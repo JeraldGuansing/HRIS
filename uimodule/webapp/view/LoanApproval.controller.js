@@ -70,9 +70,12 @@ sap.ui.define([
           message = await APPui5.postQuery(oData);
 
           if(this.oModel.getData().DataRecords[a].Status === "Approved"){
-            var empBalance = await APPui5.ExecQuery("getLoanBalance","Array",  jQuery.sap.storage.Storage.get("IDNo"),"","","",false);
-            var totalBalance  = this.oModel.getData().DataRecords[a].LoanAmount + empBalance[0].LoanBalance;
-  
+            var empBalance = await APPui5.ExecQuery("getLoanBalance","Array",  this.oModel.getData().DataRecords[a].IDNo,"","","",false);
+            var totalBalance  = APPui5.onRound(this.oModel.getData().DataRecords[a].LoanAmount,2) + APPui5.onRound(empBalance[0].LoanBalance,2);
+            
+            oData = {};
+            oHeader = {};
+            
             oData.OEMP= [];
             oHeader.O = "U";
             oHeader.Id = empBalance[0].Id;
@@ -81,24 +84,18 @@ sap.ui.define([
             message = await APPui5.postQuery(oData);
             message = parseInt(message) + parseInt(message);
           }
-
-
           message = parseInt(message) + parseInt(message);
         }
       }
 
-
-
       if(message === 0){
-       
-
         MessageBox.success("Data saved successfully.");
       }else{
         MessageBox.error(`${message}. Data not saved.`);
       }
       
       busyDialog.close();
-      this.loadAllData();
+      this.onLoadAllData();
     },
 
 
